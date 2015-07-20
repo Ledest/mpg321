@@ -304,8 +304,9 @@ union semun {
 int getnext_place(int position);
 
 #ifdef HAVE_ALSA
-long mpg321_alsa_get_volume(void);
 int init_alsa_volume_control(char *name);
+long mpg321_alsa_get_volume(void);
+void mpg321_alsa_set_volume(long value);
 #endif
 int calc_http_length(buffer *buf);
 #endif /* _MPG321_H_ */
