@@ -144,10 +144,11 @@ static void fft_prepare(const sound_sample *input, double * re, double * im) {
 
     /* Get input, in reverse bit order */
     for(i = 0; i < FFT_BUFFER_SIZE; i++) {
+        const sound_sample* ptr;
 #ifdef DEBUG
         printf("%i is reversed to %i and maps to %i %i\n", i, bitReverse[i], bitReverse[i] * 2, (bitReverse[i] * 2) + 1);
 #endif
-        sound_sample* ptr = &(input[bitReverse[i] * 2]);
+        ptr = &(input[bitReverse[i] * 2]);
         *realptr++ = (ptr[0] + ptr[1]) / 2;
         *imagptr++ = 0;
     }
