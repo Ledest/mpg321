@@ -936,14 +936,14 @@ enum mad_flow output(void *data,
 {
     register int nsamples = pcm->length;
     mad_fixed_t const *left_ch = pcm->samples[0], *right_ch = pcm->samples[1];
-    
-    static unsigned char stream[1152*4]; /* 1152 because that's what mad has as a max; *4 because
-                                    there are 4 distinct bytes per sample (in 2 channel case) */
+
+    static char stream[1152*4]; /* 1152 because that's what mad has as a max; *4 because
+                                   there are 4 distinct bytes per sample (in 2 channel case) */
     static unsigned int rate = 0;
     static int channels = 0;
     static struct audio_dither dither;
 
-    unsigned char *ptr = stream;
+    unsigned char *ptr = (unsigned char*)stream;
     register signed int sample;
     register mad_fixed_t tempsample;
 
