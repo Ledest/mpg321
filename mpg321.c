@@ -93,6 +93,7 @@ int file_change = 0;
 int remote_restart = 0;
 int muted = 0;
 char *id3_get_tag (struct id3_tag const *tag, char const *what, unsigned int maxlen);
+static enum mad_flow handle_error(void *data, struct mad_stream *stream, struct mad_frame *frame);
 
 /* Buffer Size (if enabled) */
 int buffer_size = 0;
