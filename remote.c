@@ -211,7 +211,7 @@ enum mad_flow remote_parse_input(buffer *buf, playlist *pl)
        {
 #ifdef HAVE_ALSA
 	       if(options.opt & MPG321_ENABLE_BUFFER)
-	           fprintf(stderr, "@G %lu\n", (int)(100*mpg321_alsa_get_volume()/volume_max));
+	           fprintf(stderr, "@G %lu\n", 100 * mpg321_alsa_get_volume() / volume_max);
 	       else{
 #endif
 		       if(!(options.opt & MPG321_ENABLE_BUFFER))
