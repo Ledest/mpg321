@@ -1234,15 +1234,15 @@ char *id3_get_tag (struct id3_tag const *tag, char const *what, unsigned int max
         ucs4 = id3_field_getfullstring (&frame->fields[3]);
         if (!ucs4) return (NULL);
         latin1 = id3_ucs4_latin1duplicate (ucs4);
-        if (!latin1 || strlen(latin1) == 0) return (NULL);
-        len = strlen(latin1);
+        if (!latin1 || strlen((const char*)latin1) == 0) return (NULL);
+        len = strlen((const char*)latin1);
         if (avail > len)
             tocopy = len;
         else
             tocopy = 0;
         if (!tocopy) return (NULL);
         avail-=tocopy;
-        strncat (printable, latin1, tocopy);
+        strncat (printable, (const char*)latin1, tocopy);
         free (latin1);
     }
     
@@ -1260,14 +1260,14 @@ char *id3_get_tag (struct id3_tag const *tag, char const *what, unsigned int max
                 ucs4 = id3_genre_name(ucs4);
             latin1 = id3_ucs4_latin1duplicate(ucs4);
             if (!latin1) break;
-            len = strlen(latin1);
+            len = strlen((const char*)latin1);
             if (avail > len)
                 tocopy = len;
             else
                 tocopy = 0;
             if (!tocopy) break;
             avail-=tocopy;
-            strncat (printable, latin1, tocopy);
+            strncat (printable, (const char*)latin1, tocopy);
             free (latin1);
         }
     }
