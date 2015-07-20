@@ -112,31 +112,33 @@ void check_default_play_device()
         if (strcmp(AUDIO_DEFAULT, "the libao default")==0) /* just use the libao-specified default.
                                                             This is the default when compiling. */
         {
+#if defined(HAVE_GETENV) || defined(HAVE_PUTENV) || defined(HAVE_UNSETENV)
             int unset = 1;
+#endif
             int driver_id;
             
             /* ESD is spawned when executing the ao_default_driver_id routine.
                This causes a delay and is rather annoying, so we'll disable it here
                for now. */
 
-#ifdef HAS_GETENV
+#ifdef HAVE_GETENV
             if (getenv("ESD_NO_SPAWN")) unset = 0; /* only unset it later 
                                                       if it's not already set */
 #endif
 
-#ifdef HAS_PUTENV
+#ifdef HAVE_PUTENV
             putenv("ESD_NO_SPAWN=1");
 #else
-#ifdef HAS_SETENV
+#ifdef HAVE_SETENV
             setenv("ESD_NO_SPAWN", "1", 0);
 #endif
 #endif
             driver_id = ao_default_driver_id();
 
-#ifdef HAS_PUTENV
+#ifdef HAVE_PUTENV
             if (unset) putenv("ESD_NO_SPAWN");
 #else
-#ifdef HAS_UNSETENV
+#ifdef HAVE_UNSETENV
             if (unset) unsetenv("ESD_NO_SPAWN");
 #endif
 #endif
@@ -176,31 +178,33 @@ int check_default_play_device_buffer(void)
         if (strcmp(AUDIO_DEFAULT, "the libao default")==0) /* just use the libao-specified default.
                                                             This is the default when compiling. */
         {
+#if defined(HAVE_GETENV) || defined(HAVE_PUTENV) || defined(HAVE_UNSETENV)
             int unset = 1;
+#endif
             int driver_id;
             
             /* ESD is spawned when executing the ao_default_driver_id routine.
                This causes a delay and is rather annoying, so we'll disable it here
                for now. */
 
-#ifdef HAS_GETENV
+#ifdef HAVE_GETENV
             if (getenv("ESD_NO_SPAWN")) unset = 0; /* only unset it later 
                                                       if it's not already set */
 #endif
 
-#ifdef HAS_PUTENV
+#ifdef HAVE_PUTENV
             putenv("ESD_NO_SPAWN=1");
 #else
-#ifdef HAS_SETENV
+#ifdef HAVE_SETENV
             setenv("ESD_NO_SPAWN", "1", 0);
 #endif
 #endif
             driver_id = ao_default_driver_id();
 
-#ifdef HAS_PUTENV
+#ifdef HAVE_PUTENV
             if (unset) putenv("ESD_NO_SPAWN");
 #else
-#ifdef HAS_UNSETENV
+#ifdef HAVE_UNSETENV
             if (unset) unsetenv("ESD_NO_SPAWN");
 #endif
 #endif
