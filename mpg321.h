@@ -262,7 +262,7 @@ int mad_decoder_position;
 int output_buffer_position;
 /* Output Frame including needed information */
 typedef struct {
-	unsigned char data[4*1152];
+	char data[4*1152];
 	unsigned short length;
 	signed long seconds;
 	char time[80];
