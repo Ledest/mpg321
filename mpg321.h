@@ -309,4 +309,5 @@ long mpg321_alsa_get_volume(void);
 void mpg321_alsa_set_volume(long value);
 #endif
 int calc_http_length(buffer *buf);
+void do_basicauth(void);
 #endif /* _MPG321_H_ */

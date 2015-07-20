@@ -78,7 +78,7 @@ void do_base64(unsigned char *out, const unsigned char *in, int len)
 	*out = '\0';
 }
 
-void do_basicauth() 
+void do_basicauth(void) 
 {
 
 	char user_arg[16],pass_arg[16],*t,*p=NULL;
