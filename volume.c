@@ -56,7 +56,7 @@ void mpg321_alsa_set_volume(long value)
 	      	snd_mixer_selem_set_playback_volume_all(mixerelem,value);
 }
 
-long mpg321_alsa_get_volume()
+long mpg321_alsa_get_volume(void)
 {
 	long volume;
 	if(mixerelem)
