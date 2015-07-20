@@ -892,14 +892,14 @@ static void perform_and_print(char *samples,fft_state *state)
 	printf("\n");
 }
 
-static int process_fft( char *data, int size)
+static void process_fft(char *data, int size)
 {
 	static fft_state *left_fftstate;
 	static int init=0;
 	static char buff_samples[1024];
 	static int buff_sample_count;
 
-	if(!((options.opt & MPG321_PRINT_FFT) && (options.opt & MPG321_REMOTE_PLAY))) return 0;
+	if(!((options.opt & MPG321_PRINT_FFT) && (options.opt & MPG321_REMOTE_PLAY))) return;
 
 	if(!init)
 	{
