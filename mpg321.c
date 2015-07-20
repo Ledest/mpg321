@@ -99,7 +99,7 @@ int buffer_size = 0;
 /* PID of frame buffer process */
 pid_t output_pid;
 /* Not used for the moment. It only works for CBR http/ftp retrieved files */
-extern http_file_length;
+extern int http_file_length;
 #ifdef HAVE_ALSA
 /* ALSA Volume Range */
 extern long volume_min,volume_max;
