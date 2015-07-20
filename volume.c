@@ -28,7 +28,6 @@ long volume_min,volume_max;
 
 int init_alsa_volume_control(char *name)
 {
-	char *elemnam;
 	snd_mixer_open(&mixer,0);
 	snd_mixer_attach(mixer,name);
 	snd_mixer_selem_register(mixer,NULL,NULL);
@@ -37,10 +36,8 @@ int init_alsa_volume_control(char *name)
 	mixerelem = snd_mixer_first_elem(mixer);
 
 	while (mixerelem) {
-	
-		elemnam = snd_mixer_selem_get_name(mixerelem);
 		/* It should work on most of the systems. Tested on Debian, Fedora, Gentoo, Ubuntu, RedHat, CentOS */
-		if (strcasecmp(elemnam, "Master") == 0) {
+		if (strcasecmp(snd_mixer_selem_get_name(mixerelem), "Master") == 0) {
 			snd_mixer_selem_get_playback_volume_range(mixerelem,&volume_min,&volume_max);
 			return 0;
 		}
