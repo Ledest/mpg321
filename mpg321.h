@@ -303,4 +303,9 @@ union semun {
 /* Get the next encoding/decoding place in the frame buffer */
 int getnext_place(int position);
 
+#ifdef HAVE_ALSA
+long mpg321_alsa_get_volume(void);
+int init_alsa_volume_control(char *name);
+#endif
+int calc_http_length(buffer *buf);
 #endif /* _MPG321_H_ */
