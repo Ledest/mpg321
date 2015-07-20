@@ -357,10 +357,10 @@ enum mad_flow read_header(void *data, struct mad_header const * header)
 
     if (options.opt & MPG321_VERBOSE_PLAY)
     {
-        if (!options.skip_printing_frames 
-            || (options.skip_printing_frames && !(current_frame % options.skip_printing_frames)))
-   
-	      	if(count > 0)
+	if (!options.skip_printing_frames ||
+	    (options.skip_printing_frames && !(current_frame % options.skip_printing_frames)))
+	{
+		if(count > 0)
 		{
 /*			if(options.opt & MPG321_ENABLE_BUFFER)
 			{	
@@ -391,6 +391,7 @@ enum mad_flow read_header(void *data, struct mad_header const * header)
 					playbuf->num_frames > 0 ? playbuf->num_frames - current_frame : 0, long_currenttime_str, long_remaintime_str);
 			}
 		}
+	}
     }
     else if (options.opt & MPG321_REMOTE_PLAY)
     {
