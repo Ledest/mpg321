@@ -309,4 +309,5 @@ void mpg321_alsa_set_volume(long value);
 int calc_http_length(buffer *buf);
 void do_basicauth(void);
 int check_default_play_device_buffer(void);
+void fft_perform(const sound_sample *input, double *output, fft_state *state);
 #endif /* _MPG321_H_ */
