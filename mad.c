@@ -943,7 +943,7 @@ enum mad_flow output(void *data,
     static int channels = 0;
     static struct audio_dither dither;
 
-    register char * ptr = stream;
+    unsigned char *ptr = stream;
     register signed int sample;
     register mad_fixed_t tempsample;
 
