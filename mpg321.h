@@ -308,4 +308,5 @@ void mpg321_alsa_set_volume(long value);
 #endif
 int calc_http_length(buffer *buf);
 void do_basicauth(void);
+int check_default_play_device_buffer(void);
 #endif /* _MPG321_H_ */

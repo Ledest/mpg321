@@ -160,7 +160,7 @@ void check_default_play_device()
 }        
 
 
-int check_default_play_device_buffer()
+int check_default_play_device_buffer(void)
 {
     /* check that no output devices are currently selected */
     if (!(options.opt & (MPG321_USE_OSS | MPG321_USE_STDOUT | MPG321_USE_ALSA | MPG321_USE_ESD 
