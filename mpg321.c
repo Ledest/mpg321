@@ -183,7 +183,7 @@ void *read_keyb(void *ptr)
 				else{
 #endif					
 					if(!(options.opt & MPG321_ENABLE_BUFFER))
-						fprintf(stderr,"Volume: %ld%%      \r",volume);
+						fprintf(stderr,"Volume: %d%%      \r",volume);
 #ifdef HAVE_ALSA
 				}
 #endif
@@ -233,7 +233,7 @@ void *read_keyb(void *ptr)
 				else{
 #endif
 					if(!(options.opt & MPG321_ENABLE_BUFFER))
-						fprintf(stderr,"Volume: %ld%%      \r",volume);
+						fprintf(stderr,"Volume: %d%%      \r",volume);
 #ifdef HAVE_ALSA
 				}
 #endif
