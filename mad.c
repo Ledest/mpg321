@@ -955,7 +955,7 @@ enum mad_flow output(void *data,
     if(options.opt & MPG321_ENABLE_BUFFER)
     {
 	    semop(semarray,&read_sops,1);
-	    ptr = (Output_Queue+mad_decoder_position)->data;
+	    ptr = (unsigned char*)(Output_Queue + mad_decoder_position)->data;
 	    memcpy(&((Output_Queue+mad_decoder_position)->header),header,sizeof(struct mad_header));
 			 
     }else{
