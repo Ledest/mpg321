@@ -495,7 +495,7 @@ void scan(void const *ptr, ssize_t len, buffer *buf)
 {
     struct mad_stream stream;
     struct mad_header header;
-    struct xing xing;
+    struct xing xing = xing;
     
     unsigned long bitrate = 0;
     int has_xing = 0;
