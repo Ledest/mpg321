@@ -87,9 +87,7 @@ fft_state *fft_init(void) {
     }
     for(i = 0; i < FFT_BUFFER_SIZE / 2; i++) {
         double j = 2 * PI * i / FFT_BUFFER_SIZE;
-        float test;
         costable[i] = cos(j);
-        test = cos(j);
         sintable[i] = sin(j);
     }
 
